@@ -1,5 +1,6 @@
 package gov.iti.jets.web.persistence.entities;
 
+import gov.iti.jets.web.persistence.Enums.Gender;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -43,7 +44,7 @@ public class Employee {
     @NotNull
     @Lob
     @Column(name = "gender", nullable = false)
-    private String gender;
+    private Gender gender;
 
     @NotNull
     @Column(name = "hire_date", nullable = false)
