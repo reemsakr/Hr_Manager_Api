@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig">
+    <option name="defaultUnitInitialized" value="true" />
     <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="1fcf215e-8465-42a9-a036-dff02dff3e17__hr_schema" />
+    <option name="reLastEntityCreationPackage" value="RestApi/src/main/java/gov/iti/jets/web/persistence/entities" />
   </component>
 </project>
