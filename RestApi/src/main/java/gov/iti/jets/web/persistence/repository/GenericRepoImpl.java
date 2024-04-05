@@ -1,4 +1,4 @@
-package gov.iti.jets.web.persistence.Repository;
+package gov.iti.jets.web.persistence.repository;
 
 import jakarta.persistence.EntityManager;
 import java.io.Serializable;

@@ -1,6 +1,6 @@
 package gov.iti.jets.web.persistence.entities;
 
-import gov.iti.jets.web.persistence.Enums.Gender;
+import gov.iti.jets.web.persistence.enums.Gender;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

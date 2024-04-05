@@ -1,4 +1,4 @@
-package gov.iti.jets.web.persistence.Repository;
+package gov.iti.jets.web.persistence.repository;
 import java.util.List;
 import java.util.Optional;
 

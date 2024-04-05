@@ -1,4 +1,4 @@
-package gov.iti.jets.web.persistence.Repository;
+package gov.iti.jets.web.persistence.repository;
 
 import gov.iti.jets.web.persistence.entities.Employee;
 import jakarta.persistence.EntityManager;
