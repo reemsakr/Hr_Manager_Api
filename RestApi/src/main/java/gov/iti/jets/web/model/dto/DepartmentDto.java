@@ -1,4 +1,4 @@
-package gov.iti.jets.web.dto;
+package gov.iti.jets.web.model.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -7,13 +7,12 @@ import lombok.Value;
 import java.io.Serializable;
 
 /**
- * DTO for {@link gov.iti.jets.web.persistence.entities.Position}
+ * DTO for {@link gov.iti.jets.web.persistence.entities.Department}
  */
 @Value
-public class PositionDto implements Serializable {
+public class DepartmentDto implements Serializable {
     Integer id;
     @NotNull
     @Size(max = 255)
-    String title;
-    String description;
+    String name;
 }

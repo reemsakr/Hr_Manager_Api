@@ -1,6 +1,6 @@
 package gov.iti.jets.web.mapper;
 
-import gov.iti.jets.web.dto.PositionDto;
+import gov.iti.jets.web.model.dto.PositionDto;
 import gov.iti.jets.web.persistence.entities.Position;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;

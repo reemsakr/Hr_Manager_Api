@@ -1,6 +1,6 @@
 package gov.iti.jets.web.service;
 
-import gov.iti.jets.web.dto.AddressDto;
+import gov.iti.jets.web.model.dto.AddressDto;
 import gov.iti.jets.web.mapper.AddressMapper;
 import gov.iti.jets.web.persistence.connection.DB;
 import gov.iti.jets.web.persistence.entities.Address;
@@ -70,5 +70,6 @@ public class AddressServices {
                 addressRepo.create(AddressMapper.INSTANCE.toEntity(addressDto));
             });
     }
+
 
 }

@@ -1,6 +1,6 @@
 package gov.iti.jets.web.service;
 
-import gov.iti.jets.web.dto.AttendanceDto;
+import gov.iti.jets.web.model.dto.AttendanceDto;
 import gov.iti.jets.web.mapper.AttendanceMapper;
 import gov.iti.jets.web.persistence.connection.DB;
 import gov.iti.jets.web.persistence.entities.Attendance;

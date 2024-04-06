@@ -1,12 +1,12 @@
 package gov.iti.jets.web.mapper;
 
-import gov.iti.jets.web.dto.PositionDto;
+import gov.iti.jets.web.model.dto.PositionDto;
 import gov.iti.jets.web.persistence.entities.Position;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-06T17:55:14+0200",
+    date = "2024-04-07T00:40:58+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.9 (Oracle Corporation)"
 )
 public class PositionMapperImpl implements PositionMapper {

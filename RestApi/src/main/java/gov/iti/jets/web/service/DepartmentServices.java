@@ -1,6 +1,6 @@
 package gov.iti.jets.web.service;
 
-import gov.iti.jets.web.dto.DepartmentDto;
+import gov.iti.jets.web.model.dto.DepartmentDto;
 import gov.iti.jets.web.mapper.DepartmentMapper;
 import gov.iti.jets.web.persistence.connection.DB;
 import gov.iti.jets.web.persistence.entities.Department;

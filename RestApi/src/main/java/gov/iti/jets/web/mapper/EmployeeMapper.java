@@ -1,6 +1,6 @@
 package gov.iti.jets.web.mapper;
 
-import gov.iti.jets.web.dto.EmployeeDto;
+import gov.iti.jets.web.model.dto.EmployeeDto;
 import gov.iti.jets.web.persistence.entities.Employee;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;

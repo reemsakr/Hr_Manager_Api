@@ -1,6 +1,6 @@
 package gov.iti.jets.web.mapper;
 
-import gov.iti.jets.web.dto.AttendanceDto;
+import gov.iti.jets.web.model.dto.AttendanceDto;
 import gov.iti.jets.web.persistence.entities.Attendance;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;

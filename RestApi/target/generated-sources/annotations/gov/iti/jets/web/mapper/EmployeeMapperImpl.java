@@ -1,19 +1,18 @@
 package gov.iti.jets.web.mapper;
 
-import gov.iti.jets.web.dto.DepartmentDto;
-import gov.iti.jets.web.dto.EmployeeDto;
-import gov.iti.jets.web.dto.PositionDto;
+import gov.iti.jets.web.model.dto.DepartmentDto;
+import gov.iti.jets.web.model.dto.EmployeeDto;
+import gov.iti.jets.web.model.dto.PositionDto;
 import gov.iti.jets.web.persistence.entities.Department;
 import gov.iti.jets.web.persistence.entities.Employee;
 import gov.iti.jets.web.persistence.entities.Position;
-import gov.iti.jets.web.persistence.enums.Gender;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-06T17:55:14+0200",
+    date = "2024-04-07T00:40:58+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.9 (Oracle Corporation)"
 )
 public class EmployeeMapperImpl implements EmployeeMapper {
@@ -51,7 +50,7 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         String lastName = null;
         String email = null;
         LocalDate dateOfBirth = null;
-        Gender gender = null;
+        String gender = null;
         LocalDate hireDate = null;
         DepartmentDto department = null;
         PositionDto position = null;

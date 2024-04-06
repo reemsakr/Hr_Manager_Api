@@ -1,5 +1,6 @@
-package gov.iti.jets.web.dto;
+package gov.iti.jets.web.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import gov.iti.jets.web.persistence.entities.Employee;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -20,5 +21,5 @@ public class AddressDto implements Serializable {
     @Size(max = 20)
     String postalCode;
     @NotNull
-    Employee employee;
+    EmployeeDto employee;
 }

@@ -1,4 +1,4 @@
-package gov.iti.jets.web.dto;
+package gov.iti.jets.web.model.dto;
 
 import gov.iti.jets.web.persistence.entities.Employee;
 import jakarta.validation.constraints.NotNull;
@@ -21,5 +21,5 @@ public class AttendanceDto implements Serializable {
     @NotNull
     LocalTime timeOut;
     @NotNull
-    Employee employee;
+    EmployeeDto employee;
 }

@@ -1,6 +1,5 @@
-package gov.iti.jets.web.dto;
+package gov.iti.jets.web.model.dto;
 
-import gov.iti.jets.web.persistence.enums.Gender;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Value;
@@ -8,7 +7,6 @@ import lombok.Value;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Set;
 
 /**
  * DTO for {@link gov.iti.jets.web.persistence.entities.Employee}
@@ -28,7 +26,7 @@ public class EmployeeDto implements Serializable {
     @NotNull
     LocalDate dateOfBirth;
     @NotNull
-    Gender gender;
+    String gender;
     @NotNull
     LocalDate hireDate;
     @NotNull

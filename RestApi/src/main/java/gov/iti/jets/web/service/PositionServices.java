@@ -1,6 +1,6 @@
 package gov.iti.jets.web.service;
 
-import gov.iti.jets.web.dto.PositionDto;
+import gov.iti.jets.web.model.dto.PositionDto;
 import gov.iti.jets.web.mapper.PositionMapper;
 import gov.iti.jets.web.persistence.connection.DB;
 import gov.iti.jets.web.persistence.entities.Position;

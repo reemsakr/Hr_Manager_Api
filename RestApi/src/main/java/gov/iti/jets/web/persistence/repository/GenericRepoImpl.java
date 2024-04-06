@@ -19,7 +19,7 @@ public abstract class GenericRepoImpl <T,ID extends Serializable> implements Gen
     }
 
     public Optional<T> findById(ID id) {
-        return Optional.of(entityManager.find(persistentClass,id));
+        return Optional.ofNullable(entityManager.find(persistentClass,id));
     }
 
     public void create(T entity) {

@@ -1,6 +1,5 @@
 package gov.iti.jets.web.persistence.entities;
 
-import gov.iti.jets.web.persistence.enums.Gender;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -44,7 +43,7 @@ public class Employee {
     @NotNull
     @Lob
     @Column(name = "gender", nullable = false)
-    private Gender gender;
+    private String gender;
 
     @NotNull
     @Column(name = "hire_date", nullable = false)
@@ -65,7 +64,7 @@ public class Employee {
     private BigDecimal salary;
 
     @OneToOne(mappedBy = "employee")
-    private Address addresses ;
+    private Address address ;
 
     @OneToMany(mappedBy = "employee")
     private Set<Attendance> attendances = new LinkedHashSet<>();
