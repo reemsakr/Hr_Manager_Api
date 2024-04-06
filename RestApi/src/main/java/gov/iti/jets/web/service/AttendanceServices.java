@@ -1,0 +1,72 @@
+package gov.iti.jets.web.service;
+
+import gov.iti.jets.web.dto.AttendanceDto;
+import gov.iti.jets.web.mapper.AttendanceMapper;
+import gov.iti.jets.web.persistence.connection.DB;
+import gov.iti.jets.web.persistence.entities.Attendance;
+import gov.iti.jets.web.persistence.repository.AttendanceRepo;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+public class AttendanceServices {
+    public static List<AttendanceDto> getAllAttendances(){
+        return DB.doInTransaction(em->{
+            AttendanceRepo attendanceRepo = new AttendanceRepo(em);
+            List<AttendanceDto> result= new ArrayList<>();
+            for(Attendance attendance:attendanceRepo.findAll().get()) {
+                result.add(AttendanceMapper.INSTANCE.toDto(attendance));
+            }
+            return result;
+        });
+    }
+
+    public static Optional<AttendanceDto> getAttendanceById(Integer attendanceId){
+        return DB.doInTransaction(em->{
+            AttendanceRepo attendanceRepo = new AttendanceRepo(em);
+            Optional<Attendance> attendance = attendanceRepo.findById(attendanceId);
+            if(attendance.isPresent()){
+                return  Optional.of(AttendanceMapper.INSTANCE.toDto(attendance.get()));
+            }
+            else{
+                return Optional.empty();
+            }
+        });
+    }
+
+    public static Optional<AttendanceDto> updateAttendance(AttendanceDto attendanceDto){
+        return DB.doInTransaction(em->{
+            AttendanceRepo attendanceRepo = new AttendanceRepo(em);
+            Optional<Attendance> attendance = attendanceRepo.update(AttendanceMapper.INSTANCE.toEntity(attendanceDto));
+            if(attendance.isPresent()){
+                return  Optional.of(AttendanceMapper.INSTANCE.toDto(attendance.get()));
+            }
+            else{
+                return Optional.empty();
+            }
+        });
+    }
+
+    public static int deleteAttendanceById(Integer attendanceId){
+        Optional<AttendanceDto> attendanceFound = getAttendanceById(attendanceId);
+        if(attendanceFound.isPresent()){
+            DB.doInTransactionWithoutResult(em->{
+                AttendanceRepo attendanceRepo = new AttendanceRepo(em);
+                attendanceRepo.deleteById(attendanceId);
+            });
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
+
+    public static void addAttendance(AttendanceDto attendanceDto){
+        DB.doInTransactionWithoutResult(em->{
+            AttendanceRepo attendanceRepo = new AttendanceRepo(em);
+            attendanceRepo.create(AttendanceMapper.INSTANCE.toEntity(attendanceDto));
+        });
+    }
+}
