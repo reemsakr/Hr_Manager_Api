@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class AttendanceServices {
-    public static List<AttendanceDto> getAllAttendances(){
+    public  List<AttendanceDto> getAllAttendances(){
         return DB.doInTransaction(em->{
             AttendanceRepo attendanceRepo = new AttendanceRepo(em);
             List<AttendanceDto> result= new ArrayList<>();
@@ -22,7 +22,7 @@ public class AttendanceServices {
         });
     }
 
-    public static Optional<AttendanceDto> getAttendanceById(Integer attendanceId){
+    public  Optional<AttendanceDto> getAttendanceById(Integer attendanceId){
         return DB.doInTransaction(em->{
             AttendanceRepo attendanceRepo = new AttendanceRepo(em);
             Optional<Attendance> attendance = attendanceRepo.findById(attendanceId);
@@ -35,7 +35,7 @@ public class AttendanceServices {
         });
     }
 
-    public static Optional<AttendanceDto> updateAttendance(AttendanceDto attendanceDto){
+    public  Optional<AttendanceDto> updateAttendance(AttendanceDto attendanceDto){
         return DB.doInTransaction(em->{
             AttendanceRepo attendanceRepo = new AttendanceRepo(em);
             Optional<Attendance> attendance = attendanceRepo.update(AttendanceMapper.INSTANCE.toEntity(attendanceDto));
@@ -48,7 +48,7 @@ public class AttendanceServices {
         });
     }
 
-    public static int deleteAttendanceById(Integer attendanceId){
+    public  int deleteAttendanceById(Integer attendanceId){
         Optional<AttendanceDto> attendanceFound = getAttendanceById(attendanceId);
         if(attendanceFound.isPresent()){
             DB.doInTransactionWithoutResult(em->{
@@ -63,7 +63,7 @@ public class AttendanceServices {
     }
 
 
-    public static void addAttendance(AttendanceDto attendanceDto){
+    public  void addAttendance(AttendanceDto attendanceDto){
         DB.doInTransactionWithoutResult(em->{
             AttendanceRepo attendanceRepo = new AttendanceRepo(em);
             attendanceRepo.create(AttendanceMapper.INSTANCE.toEntity(attendanceDto));

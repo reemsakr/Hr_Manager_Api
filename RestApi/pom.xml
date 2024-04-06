@@ -35,7 +35,7 @@
                     <username>admin</username>
                     <password>admin</password>
                     <url>http://localhost:9090/manager/text</url>
-                    <path>/HRRestApi</path>
+                    <path>/HrRestApi</path>
                 </configuration>
             </plugin>
             <plugin>
@@ -84,16 +84,16 @@
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet-core</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jersey.inject</groupId>-->
-<!--            <artifactId>jersey-hk2</artifactId>-->
-<!--        </dependency>-->
-        <!-- uncomment this to get JSON support
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-binding</artifactId>
         </dependency>
-        -->
+
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>

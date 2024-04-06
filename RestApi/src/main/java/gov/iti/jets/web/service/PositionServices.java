@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class PositionServices {
-    public static List<PositionDto> getAllPositions(){
+    public  List<PositionDto> getAllPositions(){
         return DB.doInTransaction(em->{
             PositionRepo positionRepo = new PositionRepo(em);
             List<PositionDto> result= new ArrayList<>();
@@ -22,7 +22,7 @@ public class PositionServices {
         });
     }
 
-    public static Optional<PositionDto> getPositionById(Integer positionId){
+    public  Optional<PositionDto> getPositionById(Integer positionId){
         return DB.doInTransaction(em->{
             PositionRepo positionRepo = new PositionRepo(em);
             Optional<Position> position = positionRepo.findById(positionId);
@@ -35,7 +35,7 @@ public class PositionServices {
         });
     }
 
-    public static Optional<PositionDto> updatePosition(PositionDto positionDto){
+    public  Optional<PositionDto> updatePosition(PositionDto positionDto){
         return DB.doInTransaction(em->{
             PositionRepo positionRepo = new PositionRepo(em);
             Optional<Position> position = positionRepo.update(PositionMapper.INSTANCE.toEntity(positionDto));
@@ -48,7 +48,7 @@ public class PositionServices {
         });
     }
 
-    public static int deletePositionById(Integer positionId){
+    public  int deletePositionById(Integer positionId){
         Optional<PositionDto> positionFound = getPositionById(positionId);
         if(positionFound.isPresent()){
             DB.doInTransactionWithoutResult(em->{

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class DepartmentServices {
-    public static List<DepartmentDto> getAllDepartments(){
+    public  List<DepartmentDto> getAllDepartments(){
         return DB.doInTransaction(em->{
             DepartmentRepo departmentRepo = new DepartmentRepo(em);
             List<DepartmentDto> result= new ArrayList<>();
@@ -22,7 +22,7 @@ public class DepartmentServices {
         });
     }
 
-    public static Optional<DepartmentDto> getDepartmentById(Integer departmentId){
+    public  Optional<DepartmentDto> getDepartmentById(Integer departmentId){
         return DB.doInTransaction(em->{
             DepartmentRepo departmentRepo = new DepartmentRepo(em);
             Optional<Department> department = departmentRepo.findById(departmentId);
@@ -35,7 +35,7 @@ public class DepartmentServices {
         });
     }
 
-    public static Optional<DepartmentDto> updateDepartment(DepartmentDto departmentDto){
+    public  Optional<DepartmentDto> updateDepartment(DepartmentDto departmentDto){
         return DB.doInTransaction(em->{
             DepartmentRepo departmentRepo = new DepartmentRepo(em);
             Optional<Department> department = departmentRepo.update(DepartmentMapper.INSTANCE.toEntity(departmentDto));
@@ -48,7 +48,7 @@ public class DepartmentServices {
         });
     }
 
-    public static int deleteDepartmentById(Integer departmentId){
+    public  int deleteDepartmentById(Integer departmentId){
         Optional<DepartmentDto> departmentFound = getDepartmentById(departmentId);
         if(departmentFound.isPresent()){
             DB.doInTransactionWithoutResult(em->{
@@ -63,7 +63,7 @@ public class DepartmentServices {
     }
 
 
-    public static void addDepartment(DepartmentDto departmentDto){
+    public  void addDepartment(DepartmentDto departmentDto){
         DB.doInTransactionWithoutResult(em->{
             DepartmentRepo departmentRepo = new DepartmentRepo(em);
             departmentRepo.create(DepartmentMapper.INSTANCE.toEntity(departmentDto));

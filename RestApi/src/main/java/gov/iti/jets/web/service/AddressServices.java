@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class AddressServices {
 
-    public static List<AddressDto> getAllAddresses(){
+    public  List<AddressDto> getAllAddresses(){
         return DB.doInTransaction(em->{
             AddressRepo addressRepo = new AddressRepo(em);
             List<AddressDto> result= new ArrayList<>();
@@ -23,7 +23,7 @@ public class AddressServices {
         });
     }
 
-    public static Optional<AddressDto> getAddressById(Integer addressId){
+    public  Optional<AddressDto> getAddressById(Integer addressId){
         return DB.doInTransaction(em->{
             AddressRepo addressRepo = new AddressRepo(em);
             Optional<Address> address = addressRepo.findById(addressId);
@@ -36,7 +36,7 @@ public class AddressServices {
         });
     }
 
-    public static Optional<AddressDto> updateAddress(AddressDto addressDto){
+    public  Optional<AddressDto> updateAddress(AddressDto addressDto){
         return DB.doInTransaction(em->{
             AddressRepo addressRepo = new AddressRepo(em);
             Optional<Address> address = addressRepo.update(AddressMapper.INSTANCE.toEntity(addressDto));
@@ -49,7 +49,7 @@ public class AddressServices {
         });
     }
 
-    public static int deleteAddressById(Integer addressId){
+    public  int deleteAddressById(Integer addressId){
         Optional<AddressDto> addressFound = getAddressById(addressId);
         if(addressFound.isPresent()){
             DB.doInTransactionWithoutResult(em->{
@@ -64,7 +64,7 @@ public class AddressServices {
     }
 
 
-    public static void addAddress(AddressDto addressDto){
+    public  void addAddress(AddressDto addressDto){
              DB.doInTransactionWithoutResult(em->{
                 AddressRepo addressRepo = new AddressRepo(em);
                 addressRepo.create(AddressMapper.INSTANCE.toEntity(addressDto));

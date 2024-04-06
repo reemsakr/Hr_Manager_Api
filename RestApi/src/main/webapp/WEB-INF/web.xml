@@ -7,12 +7,12 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>gov.iti.jets</param-value>
+            <param-value>gov.iti.jets.web.controller</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>Jersey Web Application</servlet-name>
-        <url-pattern>/web-rest-api/*</url-pattern>
+        <url-pattern>/webapi/*</url-pattern>
     </servlet-mapping>
 </web-app>

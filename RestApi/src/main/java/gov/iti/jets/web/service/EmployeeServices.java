@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class EmployeeServices {
 
-    public static List<EmployeeDto> getAllEmployees(){
+    public  List<EmployeeDto> getAllEmployees(){
         return DB.doInTransaction(em->{
             EmployeeRepo employeeRepo = new EmployeeRepo(em);
             List<EmployeeDto> result= new ArrayList<>();
@@ -25,7 +25,7 @@ public class EmployeeServices {
         });
     }
 
-    public static Optional<EmployeeDto> getEmployeeById(Integer employeeId){
+    public  Optional<EmployeeDto> getEmployeeById(Integer employeeId){
         return DB.doInTransaction(em->{
             EmployeeRepo employeeRepo = new EmployeeRepo(em);
             Optional<Employee> employee = employeeRepo.findById(employeeId);
@@ -38,7 +38,7 @@ public class EmployeeServices {
         });
     }
 
-    public static Optional<EmployeeDto> updateEmployee(EmployeeDto employeeDto){
+    public  Optional<EmployeeDto> updateEmployee(EmployeeDto employeeDto){
             return DB.doInTransaction(em->{
                 EmployeeRepo employeeRepo = new EmployeeRepo(em);
                 Optional<Employee> employee = employeeRepo.update(EmployeeMapper.INSTANCE.toEntity(employeeDto));
@@ -51,7 +51,7 @@ public class EmployeeServices {
             });
     }
 
-    public static int deleteEmployeeById(Integer employeeId){
+    public  int deleteEmployeeById(Integer employeeId){
         Optional<EmployeeDto> employeeFound = getEmployeeById(employeeId);
         if(employeeFound.isPresent()){
              DB.doInTransactionWithoutResult(em->{
@@ -65,7 +65,7 @@ public class EmployeeServices {
         }
     }
 
-    public static boolean isEmailFound(String email){
+    public  boolean isEmailFound(String email){
         return DB.doInTransaction(em ->{
             EmployeeRepo employeeRepo = new EmployeeRepo(em);
             Optional<Employee> employee = employeeRepo.getEmployeeByEmail(email);
@@ -75,7 +75,7 @@ public class EmployeeServices {
                 return false;
         });
     }
-    public static int addEmployee(EmployeeDto employeeDto){
+    public  int addEmployee(EmployeeDto employeeDto){
         if(!isEmailFound(employeeDto.getEmail())){
             DB.doInTransactionWithoutResult(em->{
                 EmployeeRepo employeeRepo = new EmployeeRepo(em);
