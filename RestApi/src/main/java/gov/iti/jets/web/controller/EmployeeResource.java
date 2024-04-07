@@ -7,17 +7,15 @@ import gov.iti.jets.web.service.EmployeeServices;
 import gov.iti.jets.web.service.PositionServices;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
-import lombok.Data;
-import lombok.Getter;
 
 import java.util.List;
 import java.util.Optional;
 
-@Path("employee")
-public class EmployeeApi {
+@Path("employees/v1")
+public class EmployeeResource {
 
     private EmployeeServices employeeServices;
-    public EmployeeApi(){
+    public EmployeeResource(){
         employeeServices = new EmployeeServices();
     }
 
@@ -47,7 +45,6 @@ public class EmployeeApi {
     @POST
     @Consumes({"application/xml", "application/json"})
     public Response addEmployee(EmployeeBodyReq employeeBodyReq){
-        EmployeeServices employeeServices = new EmployeeServices();
         Optional<DepartmentDto> departmentDto = new DepartmentServices().getDepartmentById(employeeBodyReq.getDepartmentId());
         Optional<PositionDto> positionDto = new PositionServices().getPositionById(employeeBodyReq.getPositionId());
         if(!departmentDto.isPresent()){
@@ -79,8 +76,6 @@ public class EmployeeApi {
     @Path("{id:[0-9]+}")
     @Consumes({"application/xml", "application/json"})
     public Response updateEmployee(EmployeeBodyReq employeeBodyReq ,@PathParam("id") int id){
-        System.out.println("update");
-        EmployeeServices employeeServices = new EmployeeServices();
         Optional<DepartmentDto> departmentDto = new DepartmentServices().getDepartmentById(employeeBodyReq.getDepartmentId());
         Optional<PositionDto> positionDto = new PositionServices().getPositionById(employeeBodyReq.getPositionId());
         if(!departmentDto.isPresent()){
@@ -101,8 +96,9 @@ public class EmployeeApi {
                 positionDto.get(),
                 employeeBodyReq.getSalary()
         );
-        Optional<EmployeeDto> result = employeeServices.updateEmployee(employeeDto);
+        Optional<EmployeeDto> result = employeeServices.getEmployeeById(id);
         if (!result.isPresent()) {
+            employeeServices.updateEmployee(employeeDto);
             return Response.serverError().entity("Failed to update employee,please enter a correct id").build();
         }
         return Response.status(Response.Status.OK).entity(employeeDto).build();
@@ -113,11 +109,12 @@ public class EmployeeApi {
     @GET
     @Path("address/{id:[0-9]+}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAddressByEmployeeId(@PathParam("id") int id){
+    public Response getAddressByEmployeeId(@Context UriInfo uriInfo,@PathParam("id") int id){
         System.out.println("address");
         Optional<AddressDto> addressDto = employeeServices.getAddressByEmployeeId(id);
         if(!addressDto.isPresent()){
-            return Response.status(Response.Status.NOT_FOUND).entity("this employee id has no address found").build();
+            Link link = Link.fromUriBuilder(uriInfo.getAbsolutePathBuilder()).rel("self").build();
+            return Response.status(Response.Status.NOT_FOUND).links(link).entity("this employee id has no address found").build();
         }
         else{
             return Response.status(Response.Status.OK).entity(addressDto.get()).build();
@@ -127,9 +124,10 @@ public class EmployeeApi {
     @GET
     @Path("attendance/{id:[0-9]+}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAttendanceInYearByEmployeeId(@PathParam("id") int id, @QueryParam("year") int year){
+    public Response getAttendanceInYearByEmployeeId(@Context UriInfo uriInfo,@PathParam("id") int id, @QueryParam("year") int year){
         List<AttendanceDto> attendanceDtos = employeeServices.getAttendanceInYearByEmployeeId(id,year);
-        return Response.status(Response.Status.OK).entity(attendanceDtos).build();
+        Link link = Link.fromUriBuilder(uriInfo.getAbsolutePathBuilder()).rel("self").build();
+        return Response.status(Response.Status.OK).links(link).entity(attendanceDtos).build();
     }
 
 

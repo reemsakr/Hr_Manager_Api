@@ -1,10 +1,14 @@
 package gov.iti.jets.web.service;
 
+import gov.iti.jets.web.mapper.EmployeeMapper;
 import gov.iti.jets.web.model.dto.DepartmentDto;
 import gov.iti.jets.web.mapper.DepartmentMapper;
+import gov.iti.jets.web.model.dto.EmployeeDto;
 import gov.iti.jets.web.persistence.connection.DB;
 import gov.iti.jets.web.persistence.entities.Department;
+import gov.iti.jets.web.persistence.entities.Employee;
 import gov.iti.jets.web.persistence.repository.DepartmentRepo;
+import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,12 +65,22 @@ public class DepartmentServices {
             return 0;
         }
     }
-
-
     public  void addDepartment(DepartmentDto departmentDto){
         DB.doInTransactionWithoutResult(em->{
             DepartmentRepo departmentRepo = new DepartmentRepo(em);
             departmentRepo.create(DepartmentMapper.INSTANCE.toEntity(departmentDto));
+        });
+    }
+
+    public List<EmployeeDto> getAllEmployeeByDepartmentId(Integer departmentId){
+        return DB.doInTransaction(em->{
+            DepartmentRepo departmentRepo = new DepartmentRepo(em);
+            List<Employee> employees = departmentRepo.getAllEmployeeByDepartmentId(departmentId);
+            List<EmployeeDto> employeeDtos = new ArrayList<>();
+            for(Employee employee : employees){
+                employeeDtos.add(EmployeeMapper.INSTANCE.toDto(employee));
+            }
+            return employeeDtos;
         });
     }
 }

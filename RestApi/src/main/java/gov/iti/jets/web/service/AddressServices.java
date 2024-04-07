@@ -59,7 +59,7 @@ public class AddressServices {
             return 1;
         }
         else{
-            return 0;
+            return -1;
         }
     }
 

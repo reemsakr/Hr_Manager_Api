@@ -1,9 +1,13 @@
 package gov.iti.jets.web.service;
 
+import gov.iti.jets.web.mapper.EmployeeMapper;
+import gov.iti.jets.web.model.dto.EmployeeDto;
 import gov.iti.jets.web.model.dto.PositionDto;
 import gov.iti.jets.web.mapper.PositionMapper;
 import gov.iti.jets.web.persistence.connection.DB;
+import gov.iti.jets.web.persistence.entities.Employee;
 import gov.iti.jets.web.persistence.entities.Position;
+import gov.iti.jets.web.persistence.repository.DepartmentRepo;
 import gov.iti.jets.web.persistence.repository.PositionRepo;
 
 import java.util.ArrayList;
@@ -67,6 +71,17 @@ public class PositionServices {
         DB.doInTransactionWithoutResult(em->{
             PositionRepo positionRepo = new PositionRepo(em);
             positionRepo.create(PositionMapper.INSTANCE.toEntity(positionDto));
+        });
+    }
+    public List<EmployeeDto> getAllEmployeeByPositiontId(Integer positionId){
+        return DB.doInTransaction(em->{
+            PositionRepo positionRepo = new PositionRepo(em);
+            List<Employee> employees = positionRepo.getAllEmployeeByPositionId(positionId);
+            List<EmployeeDto> employeeDtos = new ArrayList<>();
+            for(Employee employee : employees){
+                employeeDtos.add(EmployeeMapper.INSTANCE.toDto(employee));
+            }
+            return employeeDtos;
         });
     }
 }
