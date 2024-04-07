@@ -60,9 +60,9 @@ public class AttendanceControllerTest {
         Client client = ClientBuilder.newClient();
         Response response = client.target(url)
                 .path("{id:[0-9]+}")
-                .resolveTemplate("id", 15)
+                .resolveTemplate("id", 10)
                 .request()
                 .delete();
-        assertEquals(200, response.getStatus());
+        assertEquals(204, response.getStatus());
     }
 }

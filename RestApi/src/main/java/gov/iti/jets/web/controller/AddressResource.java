@@ -94,7 +94,7 @@ public class AddressResource {
             return Response.status(Response.Status.NOT_FOUND).entity("Address with this id is not found").build();
         }
         else{
-            return Response.status(Response.Status.OK).entity("deleted successfully").build();
+            return Response.status(Response.Status.NO_CONTENT).entity("deleted successfully").build();
         }
     }
 }
