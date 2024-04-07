@@ -98,9 +98,9 @@ public class EmployeeResource {
         );
         Optional<EmployeeDto> result = employeeServices.getEmployeeById(id);
         if (!result.isPresent()) {
-            employeeServices.updateEmployee(employeeDto);
             return Response.serverError().entity("Failed to update employee,please enter a correct id").build();
         }
+        employeeServices.updateEmployee(employeeDto);
         return Response.status(Response.Status.OK).entity(employeeDto).build();
 
     }
@@ -122,7 +122,7 @@ public class EmployeeResource {
     }
 
     @GET
-    @Path("attendance/{id:[0-9]+}")
+    @Path("AttendanceInYearByEmployeeId")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAttendanceInYearByEmployeeId(@Context UriInfo uriInfo,@PathParam("id") int id, @QueryParam("year") int year){
         List<AttendanceDto> attendanceDtos = employeeServices.getAttendanceInYearByEmployeeId(id,year);
