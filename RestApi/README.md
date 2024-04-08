@@ -52,7 +52,7 @@ json date from request body gets mapped to a java object that gets stored in the
 - currently, working on adding I will keep adding more test cases and reducing the number of code warnings.
 
 ![modify-employee-postman](E:\ITI\Hr_Manager_Api\RestApi\images\updateEmployee.png
-![test](E:\ITI\Hr_Manager_Api\RestApi\src\main\images\test.png)
+![test](E:\ITI\Hr_Manager_Api\RestApi\src\main\images\test.jpg)
 
 
 ## Current TodoList
