@@ -41,7 +41,7 @@ json date from request body gets mapped to a java object that gets stored in the
 - this day can either carry absence in current day or bonus in salary
 - **important ->**  employee day has to be added at this table date and time
 
-![add-new-day-postman](E:\ITI\Hr_Manager_Api\RestApi\src\main\images\addAttendance.png)
+![add-new-day-postman](https://github.com/reemsakr/Hr_Manager_Api/blob/main/RestApi/src/main/images/addAttendance.png)
 
 ## Entity Relation Diagram
 
