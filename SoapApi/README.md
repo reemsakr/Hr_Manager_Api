@@ -2,7 +2,7 @@
 
 this project is an HR system where the of it is managing employees, attendances , departments, salaries...and so on. System is able to apply CRUD operation on the DB
 
-#### The project will be fully driven by [JAX-WS(Jersey)](https://javaee.github.io/metro-jax-ws/) ​Framework, and MySql Database
+#### The project will be fully driven by [JAX-WS](https://javaee.github.io/metro-jax-ws/) ​Framework, and MySql Database
 
 ## Technologies Used
 - [x] Java 17
