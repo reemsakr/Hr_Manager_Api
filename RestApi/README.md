@@ -25,13 +25,13 @@ json date from request body gets mapped to a java object that gets stored in the
   "position":{"id":1},
   "department":{"id":1}
   ```
-![add-employee-postman](C:\Users\reems\OneDrive\Pictures\Screenshots\addEmployee.png)
+![add-employee-postman](E:\ITI\Hr_Manager_Api\RestApi\src\main\resources\images\addEmployee.png)
 
 ## Modify employee using postman
 - **this request can be done by employees with HR role only**
 - employee id has to be added after the uri
 
-![modify-employee-postman](C:\Users\reems\OneDrive\Pictures\Screenshots\updateEmployee.png
+![modify-employee-postman](E:\ITI\Hr_Manager_Api\RestApi\src\main\resources\images\updateEmployee.png
 )
 
 ## Add new day attendance
@@ -41,17 +41,17 @@ json date from request body gets mapped to a java object that gets stored in the
 - this day can either carry absence in current day or bonus in salary
 - **important ->**  employee day has to be added at this table date and time
 
-![add-new-day-postman](C:\Users\reems\OneDrive\Pictures\Screenshots\addAttendance.png)
+![add-new-day-postman](E:\ITI\Hr_Manager_Api\RestApi\src\main\resources\images\addAttendance.png)
 
 ## Entity Relation Diagram
 
-![ERD](C:\Users\reems\OneDrive\Pictures\Screenshots\hrDiagram.png)
+![ERD](E:\ITI\Hr_Manager_Api\RestApi\src\main\resources\images\hrDiagram.png)
 
 ## Test Cases
 - there are currently **24 test cases** for this application covering most of the possible scenarios.
 - currently, working on adding I will keep adding more test cases and reducing the number of code warnings.
 
-![test](C:\Users\reems\OneDrive\Pictures\Screenshots\test.png)
+![test](E:\ITI\Hr_Manager_Api\RestApi\src\main\resources\images\test.png)
 
 
 ## Current TodoList
