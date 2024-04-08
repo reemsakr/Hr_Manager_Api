@@ -51,7 +51,6 @@ json date from request body gets mapped to a java object that gets stored in the
 - there are currently **24 test cases** for this application covering most of the possible scenarios.
 - currently, working on adding I will keep adding more test cases and reducing the number of code warnings.
 
-![modify-employee-postman](E:\ITI\Hr_Manager_Api\RestApi\images\updateEmployee.png
 ![test](https://github.com/reemsakr/Hr_Manager_Api/blob/main/RestApi/src/main/images/test.jpg)
 
 
