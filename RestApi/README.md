@@ -16,7 +16,7 @@ this project is an HR system where the of it is managing employees, attendances 
 - [x] Postman
 
 ## Postman Documentation
-![postman-api-documentation](https://documenter.getpostman.com/view/20893066/2sA35MzzGY)
+[Postman Restful API](https://documenter.getpostman.com/view/20893066/2sA35MzzGY)
 
 ## Add new employee using postman
 New employee data is transferred through an HTTP request body carrying employee data as a json. This request gets sent to a servlet that calls the addEmployee api.
