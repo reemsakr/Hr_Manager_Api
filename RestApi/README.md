@@ -12,6 +12,7 @@ this project is an HR system where the of it is managing employees, attendances 
 - [x] MapStruct
 - [x] Jakarta persistance (Hibernate)
 - [x] MYSQL
+- [x] Junit 5.10.0
 - [x] Postman
 
 ## Add new employee using postman
