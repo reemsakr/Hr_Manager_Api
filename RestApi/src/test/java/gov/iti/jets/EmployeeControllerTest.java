@@ -34,7 +34,6 @@ public class EmployeeControllerTest {
                 .get();
         assertEquals(200, response.getStatus());
     }
-
     @Test
     public void TestAddEmployee() {
         Client client = ClientBuilder.newClient();
@@ -55,8 +54,6 @@ public class EmployeeControllerTest {
                 .put(Entity.entity(employeeBodyReq, MediaType.APPLICATION_JSON));
         assertEquals(200, response.getStatus());
     }
-
-
     @Test
     public void TestAddressByEmployeeId() {
         Client client = ClientBuilder.newClient();
