@@ -1,4 +1,4 @@
-# HR-System-Using-SoapAPI
+# HR-System-Using-RestAPI
 
 this project is an HR system where the of it is managing employees, attendances , departments, salaries...and so on. System is able to apply CRUD operation on the DB
 
