@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+
+    <endpoint
+            name="AddressService"
+            implementation="gov.iti.jets.web.controller.AddressResource"
+            url-pattern="/ws/address" />
+
+    <endpoint
+            name="AttendanceService"
+            implementation="gov.iti.jets.web.controller.AttendanceResource"
+            url-pattern="/ws/attendance" />
+
+    <endpoint
+            name="DepartmentService"
+            implementation="gov.iti.jets.web.controller.DepartmentResource"
+            url-pattern="/ws/department" />
+
+    <endpoint
+            name="EmployeeService"
+            implementation="gov.iti.jets.web.controller.EmployeeResource"
+            url-pattern="/ws/employee" />
+
+    <endpoint
+            name="PositionService"
+            implementation="gov.iti.jets.web.controller.PositionResource"
+            url-pattern="/ws/position" />
+</endpoints>

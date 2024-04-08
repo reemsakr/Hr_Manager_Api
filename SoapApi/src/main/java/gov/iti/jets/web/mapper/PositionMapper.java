@@ -1,0 +1,20 @@
+package gov.iti.jets.web.mapper;
+
+import gov.iti.jets.web.model.dto.PositionDto;
+import gov.iti.jets.web.persistence.entities.Position;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.factory.Mappers;
+
+@Mapper
+public interface PositionMapper {
+    PositionMapper INSTANCE = Mappers.getMapper(PositionMapper.class);
+    Position toEntity(PositionDto positionDto);
+
+    PositionDto toDto(Position position);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    Position partialUpdate(PositionDto positionDto, @MappingTarget Position position);
+}
