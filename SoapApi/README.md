@@ -14,6 +14,9 @@ this project is an HR system where the of it is managing employees, attendances 
 - [x] MYSQL
 - [x] Postman
 
+## Postman Documentation
+[Postman Soap API](https://documenter.getpostman.com/view/20893066/2sA3BhctSf)
+
 # Prerequisites
 
 1. [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 8+
